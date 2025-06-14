@@ -1,28 +1,30 @@
 ---
 
+### ✅ `README.md` (Final Version)
+
 ````markdown
 # 🛡️ S3 Encryption Monitor using AWS Lambda and Boto3
 
 ## 🎯 Objective
 
-To enhance AWS security posture by using a Lambda function that detects S3 buckets without server-side encryption (SSE).
+To enhance AWS security posture by using an AWS Lambda function that detects S3 buckets **without server-side encryption (SSE)** enabled.
 
 ---
 
 ## 🔧 What This Project Does
 
 This AWS Lambda function:
-- 🔍 Scans all S3 buckets in the account
-- ❌ Identifies buckets without SSE
-- ✅ Logs encrypted buckets
-- 📜 Prints results to CloudWatch logs
+- 🔍 Scans all S3 buckets in the AWS account
+- ❌ Identifies buckets that **do not have SSE enabled**
+- ✅ Logs encryption details for secure buckets
+- 📜 Outputs results to **CloudWatch Logs**
 
 ---
 
-## 📂 Files
+## 📂 Files Included
 
 - `lambda_function.py` – Python code for the Lambda function
-- `README.md` – Project explanation and setup instructions
+- `README.md` – Documentation for the assignment
 
 ---
 
@@ -61,20 +63,33 @@ def lambda_handler(event, context):
 
 ---
 
-## 🛠️ How to Use
+## 🚀 How to Use
 
-1. Create a few S3 buckets. Enable SSE for some, leave others unencrypted.
-2. Create a Lambda function using Python 3.x.
-3. Assign the IAM role with:
+1. ✅ **Create test S3 buckets**
 
-   * `AmazonS3ReadOnlyAccess`
-   * `AWSLambdaBasicExecutionRole`
-4. Paste the above code into the function.
-5. Manually invoke and check CloudWatch logs.
+   * Enable SSE on some buckets
+   * Leave others unencrypted for testing
+
+2. ✅ **Create IAM Role** for Lambda
+
+   * Attach these policies:
+
+     * `AmazonS3ReadOnlyAccess`
+     * `AWSLambdaBasicExecutionRole`
+
+3. ✅ **Create a Lambda Function**
+
+   * Runtime: **Python 3.x**
+   * Use the above code
+
+4. ✅ **Test it manually**
+
+   * Trigger the function
+   * Check CloudWatch logs
 
 ---
 
-## ✅ Sample Output
+## 🧪 Sample Output
 
 ```json
 {
@@ -87,20 +102,20 @@ def lambda_handler(event, context):
 
 ## ✅ Benefits
 
-| Feature              | Description                      |
-| -------------------- | -------------------------------- |
-| 🔒 Improves Security | Detects buckets without SSE      |
-| 📊 Logs for Auditing | Output goes to CloudWatch        |
-| 🤖 Automation Ready  | Can be scheduled via EventBridge |
-| 📉 Cost Effective    | No infra to manage – serverless  |
+| Feature              | Description                               |
+| -------------------- | ----------------------------------------- |
+| 🔒 Improves Security | Detects misconfigured S3 buckets          |
+| 📊 Auditable         | Results are logged in CloudWatch          |
+| 🤖 Automation Ready  | Can be scheduled via EventBridge/Cron     |
+| 💸 Cost-Effective    | Serverless & lightweight, no infra needed |
 
 ---
 
 ## ⚠️ Limitations
 
-* Does not enable encryption automatically
-* Does not scan individual object encryption
-* Works only in current AWS region context
+* Does **not auto-enable** encryption
+* Only checks **bucket-level** encryption (not per-object)
+* Limited to current AWS account & region
 
 ---
 
@@ -108,3 +123,7 @@ def lambda_handler(event, context):
 
 **Vignesh Sadanki**
 GitHub: [@Sadanki](https://github.com/Sadanki)
+
+````
+
+
