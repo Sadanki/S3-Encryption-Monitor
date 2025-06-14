@@ -1,39 +1,6 @@
-Great! Since you've already created the repo:
-🔗 [https://github.com/Sadanki/S3-Encryption-Monitor](https://github.com/Sadanki/S3-Encryption-Monitor)
-
-Here’s exactly what you need:
+Here is your complete `README.md` file content — copy and paste this into your `S3-Encryption-Monitor` project folder in VS Code as `README.md`:
 
 ---
-
-## ✅ Final Git Commands (Run from VS Code Terminal)
-
-Assuming you're in your local folder `S3-Encryption-Monitor`:
-
-```bash
-# Step 1: Initialize git repo
-git init
-
-# Step 2: Add all files (lambda_function.py + README.md)
-git add .
-
-# Step 3: Commit the changes
-git commit -m "Initial commit: Lambda function to detect unencrypted S3 buckets"
-
-# Step 4: Link your local repo to GitHub repo
-git remote add origin https://github.com/Sadanki/S3-Encryption-Monitor.git
-
-# Step 5: Set branch name to main
-git branch -M main
-
-# Step 6: Push to GitHub
-git push -u origin main
-```
-
----
-
-## 📄 README.md (Copy and Paste in VS Code)
-
-Create a file named `README.md` in the same folder and paste this:
 
 ````markdown
 # 🛡️ S3 Encryption Monitor using AWS Lambda and Boto3
@@ -104,7 +71,7 @@ def lambda_handler(event, context):
 
    * `AmazonS3ReadOnlyAccess`
    * `AWSLambdaBasicExecutionRole`
-4. Paste the above code.
+4. Paste the above code into the function.
 5. Manually invoke and check CloudWatch logs.
 
 ---
@@ -148,12 +115,5 @@ GitHub: [@Sadanki](https://github.com/Sadanki)
 
 ---
 
-Once you:
-- Create `lambda_function.py`  
-- Paste above into `README.md`  
-- Run the git commands I shared
-
-…your repo will look perfect on GitHub ✅
-
-Let me know if you want me to package this as a zip too.
+Let me know when you're ready to add this to Git and push it, or if you'd like help creating similar `README.md` files for your other AWS Lambda assignments.
 ```
