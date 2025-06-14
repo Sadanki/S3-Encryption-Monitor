@@ -1,4 +1,3 @@
-````markdown
 # S3 Encryption Monitor using AWS Lambda and Boto3
 
 ## Objective
@@ -38,12 +37,3 @@ This project uses an AWS Lambda function to scan all S3 buckets in an AWS accoun
   "statusCode": 200,
   "unencrypted_buckets": ["my-unencrypted-bucket-1", "my-unencrypted-bucket-2"]
 }
-````
-
-## Author
-
-Vignesh Sadanki
-[GitHub Profile](https://github.com/Sadanki)
-
-
-```
