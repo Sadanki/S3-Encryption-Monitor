@@ -1,129 +1,55 @@
+Absolutely! Here's a **simple, clean, and clear `README.md`** for your `S3-Encryption-Monitor` project:
+
 ---
 
-### ✅ `README.md` (Final Version)
+### ✅ Simple `README.md`
 
 ````markdown
-# 🛡️ S3 Encryption Monitor using AWS Lambda and Boto3
+# S3 Encryption Monitor using AWS Lambda and Boto3
 
-## 🎯 Objective
+## Objective
 
-To enhance AWS security posture by using an AWS Lambda function that detects S3 buckets **without server-side encryption (SSE)** enabled.
+This project uses an AWS Lambda function to scan all S3 buckets in an AWS account and identify buckets that do not have server-side encryption (SSE) enabled.
 
----
+## Files
 
-## 🔧 What This Project Does
+- `lambda_function.py` – Python script to detect unencrypted S3 buckets.
+- `README.md` – Project documentation.
 
-This AWS Lambda function:
-- 🔍 Scans all S3 buckets in the AWS account
-- ❌ Identifies buckets that **do not have SSE enabled**
-- ✅ Logs encryption details for secure buckets
-- 📜 Outputs results to **CloudWatch Logs**
+## How It Works
 
----
+1. The Lambda function lists all S3 buckets in the account.
+2. It checks each bucket for server-side encryption.
+3. Unencrypted bucket names are printed to the logs.
 
-## 📂 Files Included
+## Requirements
 
-- `lambda_function.py` – Python code for the Lambda function
-- `README.md` – Documentation for the assignment
+- Python 3.x (Lambda runtime)
+- IAM Role with the following permissions:
+  - `AmazonS3ReadOnlyAccess`
+  - `AWSLambdaBasicExecutionRole`
 
----
+## How to Use
 
-## 🪄 Lambda Function Code (Python 3.x)
+1. Create a few S3 buckets. Enable encryption on some, leave others unencrypted.
+2. Deploy this code as a Lambda function.
+3. Assign the IAM role.
+4. Manually trigger the function.
+5. Check CloudWatch logs for results.
 
-```python
-import boto3
-
-def lambda_handler(event, context):
-    s3 = boto3.client('s3')
-    unencrypted_buckets = []
-
-    response = s3.list_buckets()
-
-    for bucket in response['Buckets']:
-        bucket_name = bucket['Name']
-        try:
-            encryption = s3.get_bucket_encryption(Bucket=bucket_name)
-            rules = encryption['ServerSideEncryptionConfiguration']['Rules']
-            print(f"✅ {bucket_name} is encrypted with: {rules[0]['ApplyServerSideEncryptionByDefault']['SSEAlgorithm']}")
-        except s3.exceptions.ClientError as e:
-            error_code = e.response['Error']['Code']
-            if error_code == 'ServerSideEncryptionConfigurationNotFoundError':
-                print(f"❌ {bucket_name} is NOT encrypted")
-                unencrypted_buckets.append(bucket_name)
-            else:
-                print(f"⚠️ Error checking {bucket_name}: {str(e)}")
-
-    print("📝 Unencrypted Buckets:", unencrypted_buckets)
-
-    return {
-        'statusCode': 200,
-        'unencrypted_buckets': unencrypted_buckets
-    }
-````
-
----
-
-## 🚀 How to Use
-
-1. ✅ **Create test S3 buckets**
-
-   * Enable SSE on some buckets
-   * Leave others unencrypted for testing
-
-2. ✅ **Create IAM Role** for Lambda
-
-   * Attach these policies:
-
-     * `AmazonS3ReadOnlyAccess`
-     * `AWSLambdaBasicExecutionRole`
-
-3. ✅ **Create a Lambda Function**
-
-   * Runtime: **Python 3.x**
-   * Use the above code
-
-4. ✅ **Test it manually**
-
-   * Trigger the function
-   * Check CloudWatch logs
-
----
-
-## 🧪 Sample Output
+## Sample Output
 
 ```json
 {
   "statusCode": 200,
   "unencrypted_buckets": ["my-unencrypted-bucket-1", "my-unencrypted-bucket-2"]
 }
-```
-
----
-
-## ✅ Benefits
-
-| Feature              | Description                               |
-| -------------------- | ----------------------------------------- |
-| 🔒 Improves Security | Detects misconfigured S3 buckets          |
-| 📊 Auditable         | Results are logged in CloudWatch          |
-| 🤖 Automation Ready  | Can be scheduled via EventBridge/Cron     |
-| 💸 Cost-Effective    | Serverless & lightweight, no infra needed |
-
----
-
-## ⚠️ Limitations
-
-* Does **not auto-enable** encryption
-* Only checks **bucket-level** encryption (not per-object)
-* Limited to current AWS account & region
-
----
-
-## 🧠 Author
-
-**Vignesh Sadanki**
-GitHub: [@Sadanki](https://github.com/Sadanki)
-
 ````
 
+## Author
 
+Vignesh Sadanki
+[GitHub Profile](https://github.com/Sadanki)
+
+
+```
