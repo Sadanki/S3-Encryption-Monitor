@@ -1,9 +1,3 @@
-Absolutely! Here's a **simple, clean, and clear `README.md`** for your `S3-Encryption-Monitor` project:
-
----
-
-### ✅ Simple `README.md`
-
 ````markdown
 # S3 Encryption Monitor using AWS Lambda and Boto3
 
