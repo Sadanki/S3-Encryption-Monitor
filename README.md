@@ -1,5 +1,3 @@
-Here is your complete `README.md` file content — copy and paste this into your `S3-Encryption-Monitor` project folder in VS Code as `README.md`:
-
 ---
 
 ````markdown
@@ -110,10 +108,3 @@ def lambda_handler(event, context):
 
 **Vignesh Sadanki**
 GitHub: [@Sadanki](https://github.com/Sadanki)
-
-```
-
----
-
-Let me know when you're ready to add this to Git and push it, or if you'd like help creating similar `README.md` files for your other AWS Lambda assignments.
-```
